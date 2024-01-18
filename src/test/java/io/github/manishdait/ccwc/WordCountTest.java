@@ -12,4 +12,10 @@ public class WordCountTest  {
     long expected = 342190;
     assertEquals(expected, WordCount.countByte("test.txt"));
   }
+
+  @Test
+  public void testLineCount() throws IOException {
+    long expected = 7145;
+    assertEquals(expected, WordCount.countLine("test.txt"));
+  }
 }
