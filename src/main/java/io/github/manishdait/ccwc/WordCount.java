@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 
 public class WordCount {
@@ -37,5 +39,36 @@ public class WordCount {
     stream.close();
 
     return lineCount;
+  }
+
+  protected static long countWord(String filename) throws IOException {
+    long wordCount  = 0;
+
+    File file = new File(filename);
+    Scanner stream = new Scanner(file);
+
+    while (stream.hasNext()) {
+      stream.next();
+      wordCount++;
+    }
+
+    stream.close();
+
+    return wordCount;
+  }
+
+  protected static long countChar(String filename) throws IOException {
+    long charCount = 0;
+
+
+    BufferedReader stream = new BufferedReader(new FileReader(filename));
+
+    while (stream.read() != -1) {
+      charCount++;
+    }
+
+    stream.close();
+
+    return charCount;
   }
 }

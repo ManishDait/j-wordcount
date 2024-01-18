@@ -18,4 +18,16 @@ public class WordCountTest  {
     long expected = 7145;
     assertEquals(expected, WordCount.countLine("test.txt"));
   }
+
+  @Test
+  public void testWordCount() throws IOException {
+    long expected = 58164;
+    assertEquals(expected, WordCount.countWord("test.txt"));
+  }
+
+  @Test
+  public void testCharCount() throws IOException {
+    long expected = 339292;
+    assertEquals(expected, WordCount.countChar("test.txt"));
+  }
 }
