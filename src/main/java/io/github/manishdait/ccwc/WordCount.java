@@ -9,7 +9,46 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class WordCount {
-  public static void main( String[] args ) throws IOException {}
+  public static void main(String[] args) throws IOException {
+    boolean showByteCount = false;
+    boolean showWordCount = false;
+    boolean showLineCount = false;
+    boolean showCharCount = false;
+
+    String filename = null;
+
+    for (String arg : args) {
+      if (arg.equals("-c")) {
+        showByteCount = true;
+      } else if (arg.equals("-l")) {
+        showLineCount = true;
+      } else if (arg.equals("-w")) {
+        showWordCount = true;
+      } else if (arg.equals("-m")) {
+        showCharCount = true;
+      } else {
+        filename = arg;
+      }
+    }
+
+    if (showByteCount) {
+      System.out.print(countByte(filename) + " ");
+    }
+    if (showWordCount) {
+      System.out.print(countWord(filename) + " ");
+    }
+    if (showLineCount) {
+      System.out.print(countLine(filename) + " ");
+    }
+    if (showCharCount) {
+      System.out.print(countChar(filename) + " ");
+    }
+    if (!showByteCount || !showCharCount || !showLineCount || !showWordCount) {
+      System.out.print(countLine(filename) + " " + countWord(filename) + " " + countByte(filename) + " ");
+    }
+    System.out.println(filename);
+
+  }
 
   protected static long countByte(String filename) throws IOException {
     long byteCount = 0;
