@@ -31,6 +31,10 @@ public class WordCount {
       }
     }
 
+    if (filename == null) {
+      printUsage();
+      System.exit(0);
+    }
     if (showByteCount) {
       System.out.print(countByte(filename) + " ");
     }
@@ -48,6 +52,12 @@ public class WordCount {
     }
     System.out.println(filename);
 
+  }
+
+  private static void printUsage() {
+    System.out.println("Invalid input.");
+    System.out.println("Usage: ccwc [OPTION...] [FILE...]\n");
+    System.out.println("Try 'ccwc --help' for more information.");
   }
 
   protected static long countByte(String filename) throws IOException {
