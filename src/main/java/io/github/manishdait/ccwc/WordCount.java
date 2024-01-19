@@ -18,14 +18,17 @@ public class WordCount {
     String filename = null;
 
     for (String arg : args) {
-      if (arg.equals("-c")) {
+      if (arg.equals("-c") || arg.equals("--bytes")) {
         showByteCount = true;
-      } else if (arg.equals("-l")) {
+      } else if (arg.equals("-l") || arg.equals("--lines")) {
         showLineCount = true;
-      } else if (arg.equals("-w")) {
+      } else if (arg.equals("-w") || arg.equals("--words")) {
         showWordCount = true;
-      } else if (arg.equals("-m")) {
+      } else if (arg.equals("-m") || arg.equals("--chars")) {
         showCharCount = true;
+      } else if (arg.equals("--help")) {
+        printHelp();
+        System.exit(0);
       } else {
         filename = arg;
       }
@@ -56,8 +59,23 @@ public class WordCount {
 
   private static void printUsage() {
     System.out.println("Invalid input.");
-    System.out.println("Usage: ccwc [OPTION...] [FILE...]\n");
+    System.out.println("Usage: ccwc [OPTION]... [FILE]...\n");
     System.out.println("Try 'ccwc --help' for more information.");
+  }
+
+  private static void printHelp() {
+    System.out.println("Usage: ccwc [OPTION]... [FILE]...");
+    System.out.println("Print newline, word, byte, and character counts for each FILE.");
+    System.out.println("A word is a non-zero-length sequence of characters delimited by white space.\n");
+    System.out.println("The options below may be used to select which counts are printed, always in");
+    System.out.println("the following order: newline, word, character, byte, maximum line length.");
+
+    System.out.println("  -c, --bytes            print the byte counts");
+    System.out.println("  -m, --chars            print the character counts");
+    System.out.println("  -l, --lines            print the line counts");
+    System.out.println("  -w, --words            print the word counts");
+    System.out.println("      --help             display help");
+    System.out.println("      --version          output version information");
   }
 
   protected static long countByte(String filename) throws IOException {
