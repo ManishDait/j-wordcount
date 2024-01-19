@@ -29,6 +29,9 @@ public class WordCount {
       } else if (arg.equals("--help")) {
         printHelp();
         System.exit(0);
+      } else if (arg.equals("--version")) {
+        printVersion();
+        System.exit(0);
       } else {
         filename = arg;
       }
@@ -76,6 +79,11 @@ public class WordCount {
     System.out.println("  -w, --words            print the word counts");
     System.out.println("      --help             display help");
     System.out.println("      --version          output version information");
+  }
+
+  private static void printVersion() {
+    System.out.println("ccwc v-1.0.0 2023-01-20");
+    System.out.println("Written by Manish Dait.");
   }
 
   protected static long countByte(String filename) throws IOException {
