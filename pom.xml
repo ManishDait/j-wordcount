@@ -75,6 +75,6 @@
         </plugin>
       </plugins>
     </pluginManagement>
-    <finalName>jwc-v${version}</finalName>
+    <finalName>jwc-v${project.version}</finalName>
   </build>
 </project>
