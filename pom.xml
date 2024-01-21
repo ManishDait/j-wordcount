@@ -9,8 +9,8 @@
   <version>1.0</version>
 
   <name>ccwc</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  
+  <url>https://github.com/ManishDait/ccwc</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -75,5 +75,6 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <finalName>ccwc-v${version}</finalName>
   </build>
 </project>
