@@ -5,15 +5,20 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class WordCount {
+  static boolean showByteCount = false;
+  static boolean showWordCount = false;
+  static boolean showLineCount = false;
+  static boolean showCharCount = false;
+
   public static void main(String[] args) throws IOException {
-    boolean showByteCount = false;
-    boolean showWordCount = false;
-    boolean showLineCount = false;
-    boolean showCharCount = false;
+    
 
     String filename = null;
 
@@ -38,9 +43,40 @@ public class WordCount {
     }
 
     if (filename == null) {
-      printUsage();
-      System.exit(0);
+      if (!(System.in.available() > 0)) {
+        printUsage();
+        System.exit(0);
+      }
+
+      Scanner scan = new Scanner(System.in);
+
+      filename = System.currentTimeMillis() + "-temp.txt";
+
+      File tempFile = new File(filename);
+      tempFile.createNewFile();
+
+      BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+      BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
+
+      int character;
+      while ((character = reader.read()) != -1) {
+        writer.write(character);
+      }
+
+      writer.close();
+      reader.close();
+      scan.close();
+
+      printResult(filename);
+      System.out.println("");
+      tempFile.delete();
+    } else {
+      printResult(filename);
+      System.out.println(filename);
     }
+  }
+
+  private static void printResult(String filename) throws IOException {
     if (showByteCount) {
       System.out.print(countByte(filename) + " ");
     }
@@ -53,11 +89,9 @@ public class WordCount {
     if (showCharCount) {
       System.out.print(countChar(filename) + " ");
     }
-    if (!showByteCount || !showCharCount || !showLineCount || !showWordCount) {
+    if (!showByteCount && !showCharCount && !showLineCount && !showWordCount) {
       System.out.print(countLine(filename) + " " + countWord(filename) + " " + countByte(filename) + " ");
     }
-    System.out.println(filename);
-
   }
 
   private static void printUsage() {
