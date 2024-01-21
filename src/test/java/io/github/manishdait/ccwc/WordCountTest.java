@@ -7,7 +7,7 @@ import java.io.IOException;
 import org.junit.Test;
 
 public class WordCountTest  {
-  String filename = "test.txt";
+  String filename = "src/test/resource/test.txt";
   @Test
   public void testByteCount() throws IOException {
     long expected = 342190;
