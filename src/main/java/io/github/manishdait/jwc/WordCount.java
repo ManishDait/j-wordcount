@@ -1,4 +1,4 @@
-package io.github.manishdait.ccwc;
+package io.github.manishdait.jwc;
 
 import java.util.ArrayList;
 import java.util.List;

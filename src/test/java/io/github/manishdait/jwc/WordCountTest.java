@@ -1,4 +1,4 @@
-package io.github.manishdait.ccwc;
+package io.github.manishdait.jwc;
 
 import static org.junit.Assert.assertEquals;
 

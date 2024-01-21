@@ -4,13 +4,13 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>io.github.manishdait.ccwc</groupId>
-  <artifactId>ccwc</artifactId>
+  <groupId>io.github.manishdait.jwc</groupId>
+  <artifactId>jwc</artifactId>
   <version>1.0</version>
 
-  <name>ccwc</name>
+  <name>jwc</name>
   
-  <url>https://github.com/ManishDait/ccwc</url>
+  <url>https://github.com/ManishDait/j-wordcounter</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -75,6 +75,6 @@
         </plugin>
       </plugins>
     </pluginManagement>
-    <finalName>ccwc-v${version}</finalName>
+    <finalName>jwc-v${version}</finalName>
   </build>
 </project>
