@@ -1,5 +1,7 @@
 package io.github.manishdait.ccwc;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import java.io.File;
@@ -20,7 +22,7 @@ public class WordCount {
   public static void main(String[] args) throws IOException {
     
 
-    String filename = null;
+    List<String> filenames = new ArrayList<>();
 
     for (String arg : args) {
       if (arg.equals("-c") || arg.equals("--bytes")) {
@@ -38,19 +40,20 @@ public class WordCount {
         printVersion();
         System.exit(0);
       } else {
-        filename = arg;
+        filenames.add(arg);
       }
     }
 
-    if (filename == null) {
+    if (filenames.size() == 0) {
       if (!(System.in.available() > 0)) {
+        System.out.println("Invalid input.");
         printUsage();
         System.exit(0);
       }
 
       Scanner scan = new Scanner(System.in);
 
-      filename = System.currentTimeMillis() + "-temp.txt";
+      String filename = System.currentTimeMillis() + "-temp.txt";
 
       File tempFile = new File(filename);
       tempFile.createNewFile();
@@ -71,31 +74,39 @@ public class WordCount {
       System.out.println("");
       tempFile.delete();
     } else {
-      printResult(filename);
-      System.out.println(filename);
+      for (String filename : filenames) {
+        printResult(filename);
+        System.out.println(filename);
+      }
     }
   }
 
   private static void printResult(String filename) throws IOException {
+    File file = new File(filename);
+    if(!file.exists()) {
+      System.out.println("File '\u001B[33m" + filename + "\u001B[37m' does not exist.");
+      printUsage();
+      System.exit(0);;
+    }
     if (showByteCount) {
-      System.out.print(countByte(filename) + " ");
+      System.out.printf("%8d ", countByte(filename));
     }
     if (showWordCount) {
-      System.out.print(countWord(filename) + " ");
+      System.out.flush();
+      System.out.printf("%8d ", countWord(filename));
     }
     if (showLineCount) {
-      System.out.print(countLine(filename) + " ");
+      System.out.printf("%8d ", countLine(filename));
     }
     if (showCharCount) {
-      System.out.print(countChar(filename) + " ");
+      System.out.printf("%8d ", countChar(filename));
     }
     if (!showByteCount && !showCharCount && !showLineCount && !showWordCount) {
-      System.out.print(countLine(filename) + " " + countWord(filename) + " " + countByte(filename) + " ");
+      System.out.printf("%8d %8d %8d ",countLine(filename), countWord(filename), countByte(filename));
     }
   }
 
   private static void printUsage() {
-    System.out.println("Invalid input.");
     System.out.println("Usage: ccwc [OPTION]... [FILE]...\n");
     System.out.println("Try 'ccwc --help' for more information.");
   }
