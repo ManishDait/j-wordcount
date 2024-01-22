@@ -107,12 +107,12 @@ public class WordCount {
   }
 
   private static void printUsage() {
-    System.out.println("Usage: ccwc [OPTION]... [FILE]...\n");
-    System.out.println("Try 'ccwc --help' for more information.");
+    System.out.println("Usage: jwc [OPTION]... [FILE]...\n");
+    System.out.println("Try 'jwc --help' for more information.");
   }
 
   private static void printHelp() {
-    System.out.println("Usage: ccwc [OPTION]... [FILE]...");
+    System.out.println("Usage: jwc [OPTION]... [FILE]...");
     System.out.println("Print newline, word, byte, and character counts for each FILE.");
     System.out.println("A word is a non-zero-length sequence of characters delimited by white space.\n");
     System.out.println("The options below may be used to select which counts are printed, always in");
