@@ -10,7 +10,7 @@
 
   <name>jwc</name>
   
-  <url>https://github.com/ManishDait/j-wordcounter</url>
+  <url>https://github.com/ManishDait/j-wordcount</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -52,7 +52,7 @@
           <configuration>
             <archive>
               <manifest>
-                <mainClass>io.github.manishdait.ccwc.WordCount</mainClass>
+                <mainClass>io.github.manishdait.jwc.WordCount</mainClass>
               </manifest>
             </archive>
           </configuration>
