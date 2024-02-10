@@ -1,6 +1,6 @@
 # jwc - Java Word Count
 
-jwc is a command-line tool written in Java that provides functionality similar to the 'wc' command in Ubuntu Linux. It enables users to count words, lines, characters, and bytes in text files.
+jwc is a command-line tool written in Java that provides functionality similar to the 'wc' command in Linux. It enables users to count words, lines, characters, and bytes in text files.
 
 ## Features
 
