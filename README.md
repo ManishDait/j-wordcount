@@ -36,6 +36,9 @@ To install jwc using the Debian package, download the `.deb` file from the [rele
 ```bash
 sudo dpkg -i jwc-1.0.deb
 ```
+```bash
+jwc [options] [file1] [file2] ...
+```
 
 ### JAR File
 
