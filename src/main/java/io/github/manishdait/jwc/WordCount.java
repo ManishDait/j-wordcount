@@ -127,7 +127,7 @@ public class WordCount {
   }
 
   private static void printVersion() {
-    System.out.println("ccwc v-1.0.0 2023-01-20");
+    System.out.println("jwc v-1.0.0 2023-01-20");
     System.out.println("Written by Manish Dait.");
   }
 
